@@ -4,7 +4,6 @@ on: [push, pull_request]
 jobs:
   Main:
     # We always process server or desktop release tags, because they also publish the release
-    if: github.repository == 'laurent22/joplin'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -15,7 +14,7 @@ jobs:
         # Visual Studio 2026 in late September 2026, and that job compiles
         # sqlite3 from source.
         # https://github.com/actions/runner-images/issues/14602
-        os: [macos-15-intel, ubuntu-22.04, windows-2025, ubuntu-22.04-arm, windows-11-vs2026-arm]
+        os: [windows-2025, windows-11-vs2026-arm]
     steps:
       - uses: actions/checkout@v6
 
